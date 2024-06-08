@@ -25,12 +25,19 @@ export function useBalance () {
         show: true
       })
     } catch (error) {
-      alertStore.showAlert({
-        type: 'error',
-        message: 'Hubo un error al intentar cargar su balance, por favor, intente luego.',
-        show: true
-      })
-      console.error(error)
+      if (error.response.status === 404) {
+        alertStore.showAlert({
+          type: 'error',
+          message: 'El usuario no existe.',
+          show: true
+        })
+      } else {
+        alertStore.showAlert({
+          type: 'error',
+          message: 'Hubo un error al intentar cargar su balance, por favor, intente luego.',
+          show: true
+        })
+      }
     }
   }
 

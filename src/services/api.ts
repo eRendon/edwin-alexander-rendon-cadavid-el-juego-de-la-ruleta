@@ -3,7 +3,7 @@ import { IUser } from '../interfaces/IUser'
 import { IBetResult } from '../interfaces/IBetResult'
 
 const apiClient = axios.create({
-  baseURL: 'http://localhost:5209/api',
+  baseURL: 'http://localhost:5120/api',
   withCredentials: false,
   headers: {
     Accept: 'application/json',
